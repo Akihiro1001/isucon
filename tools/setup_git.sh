@@ -48,4 +48,5 @@ echo -e "${GIT_IGNORE_TARGET}" >> .gitignore
 # GitHubに上げる
 git add .
 git commit -m "first commit"
+git branch -M main
 git push -u origin main
