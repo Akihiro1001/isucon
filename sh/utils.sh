@@ -81,8 +81,11 @@ init_config_files() {
             echo "${filename}をwebapp配下に移動しました。"
         else
             echo "${filename}を削除します。"
-            check_not_exist_path "${path}.bk"
-            sudo mv "${path}" "${path}.bk"
+            if [ -e "${path}.bk" ]; then
+                sudo rm -f "${path}"
+            else
+                sudo mv "${path}" "${path}.bk"
+            fi
             echo "${filename}を削除しました。バックアップ：${path}.bk"
         fi
 

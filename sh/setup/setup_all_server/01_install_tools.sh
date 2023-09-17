@@ -7,8 +7,9 @@
 # 初期処理
 # =========================
 set -e
-source conf.sh
-source utils.sh
+my_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "$my_dir/../../conf.sh"
+source "$my_dir/../../utils.sh"
 
 # =========================
 # メイン処理
