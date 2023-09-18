@@ -43,20 +43,7 @@ pull_repo() {
 # Goのビルド
 build_go() {
   cd "${GO_BUILD_PATH}"
-  go build
-
-}
-
-# サービス再起動
-restart() {
-  local services=("${SERVICES[@]}")
-
-  for service in "${services[@]}"; do
-    sudo systemctl restart "${service}"
-  done
-
-  # OS設定変更反映
-  sudo sysctl -p
+  go build "${GO_BUILD_FILE}"
 }
 
 # ログクリア

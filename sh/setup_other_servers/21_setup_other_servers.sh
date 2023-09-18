@@ -9,8 +9,8 @@
 # =========================
 set -e
 my_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-source "$my_dir/../../conf.sh"
-source "$my_dir/../../utils.sh"
+source "$my_dir/../conf.sh"
+source "$my_dir/../utils.sh"
 
 # =========================
 # 関数
@@ -32,3 +32,4 @@ exec_func configure_global_git
 exec_func clone_repo
 exec_func init_config_files "false" "false"
 exec_func init_config_files "true" "false"
+exec_func restart

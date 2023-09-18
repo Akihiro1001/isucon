@@ -6,6 +6,7 @@ WEBAPP_PATH="/home/isucon/private_isu/webapp"
 CONFIGS_PATH="${WEBAPP_PATH}/configs"
 WEBAPP_BK_PATH="${WEBAPP_PATH}_bk"
 GO_BUILD_PATH="${WEBAPP_PATH}/golang"
+GO_BUILD_FILE="app.go"
 
 GIT_USER_EMAIL="sample@sample.com"
 GIT_USER_NAME="sample"
@@ -17,7 +18,6 @@ GIT_IGNORE_TARGET="
 etc/
 node/
 php/
-public/
 ruby/
 docker-compose.yml
 "

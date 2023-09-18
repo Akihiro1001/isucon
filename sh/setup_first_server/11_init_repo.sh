@@ -9,8 +9,8 @@
 # =========================
 set -e
 my_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-source "$my_dir/../../conf.sh"
-source "$my_dir/../../utils.sh"
+source "$my_dir/../conf.sh"
+source "$my_dir/../utils.sh"
 
 # =========================
 # 関数

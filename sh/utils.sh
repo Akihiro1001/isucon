@@ -12,12 +12,13 @@ exec_func() {
     #１つ目の引数を削除し、前にずらす
     shift
 
-    echo "[関数]${callback} ${@}を実行します。"
+    echo "[関数実行開始]${callback} ${@}を実行します。"
 
     # 実行
     $callback "$@"
 
-    echo "[関数]${callback} ${@}を実行しました。"
+    echo "[関数実行終了]${callback} ${@}を実行しました。"
+    echo ""
 }
 
 # Webappのバックアップ
@@ -101,4 +102,16 @@ init_config_files() {
             echo "${dir}から${CONFIGS_PATH}/${filename}にシンボリックリンクを張りました。"
         fi
     done
+}
+
+# サービス再起動
+restart() {
+    local services=("${SERVICES[@]}")
+
+    for service in "${services[@]}"; do
+        sudo systemctl restart "${service}"
+    done
+
+    # OS設定変更反映
+    sudo sysctl -p
 }

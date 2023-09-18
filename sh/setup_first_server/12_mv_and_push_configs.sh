@@ -8,8 +8,8 @@
 # =========================
 set -e
 my_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-source "$my_dir/../../conf.sh"
-source "$my_dir/../../utils.sh"
+source "$my_dir/../conf.sh"
+source "$my_dir/../utils.sh"
 
 # =========================
 # 関数
@@ -39,3 +39,4 @@ exec_func mkdir_configs
 exec_func init_config_files "false" "true"
 exec_func init_config_files "true" "true"
 exec_func commit_and_push
+exec_func restart
