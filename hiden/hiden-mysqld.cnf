@@ -1,0 +1,42 @@
+[mysqld]
+
+
+#######################################
+オリジナル
+#######################################
+# TODO:ここにオリジナルの設定を残す
+
+#######################################
+秘伝のタレ
+#######################################
+
+# 基本設定
+bind-address = 0.0.0.0 #MySQLに接続可能なIPアドレス
+
+# スロークエリログ
+# ログ出力先の権限を付与する必要あり
+# TODO:最後にスロークエリログをOFFにする
+# slow_query_log = 0
+slow_query_log         = 1
+slow_query_log_file    = /var/log/mysql/mysql-slow.log
+long_query_time        = 0
+log-queries-not-using-indexes = 1
+
+# パフォーマンス関連
+innodb_buffer_pool_size = 3072M #InnoDBストレージエンジンが使用するメモリプールのサイズ 総メモリの80%
+innodb_log_file_size = 1024M #InnoDBログファイルのサイズ 小さいと頻繁にローテーションが発生してしまう
+innodb_change_buffering = none #RDSの推奨値
+innodb_io_capacity = 10000 #1秒あたりの最大I/O操作数
+innodb_sync_array_size = 16 #多数のスレッドが待機するような場合の高並列実行ワークロードに特に有効
+innodb_flush_log_at_trx_commit = 2 #1に設定するとトランザクション単位でログを出力するが 2 を指定すると1秒間に1回ログファイルに出力するようになる
+tmp_table_size = 512M #インメモリの一時テーブルに利用されるメモリの最大サイズ
+max_heap_table_size = 512M #インメモリの一時テーブルに利用されるメモリの最大サイズ
+query_cache_size = 0 #クエリキャッシュは推奨されない
+innodb_read_io_threads = 16 #読み込み操作のI/Oスレッドの数
+innodb_write_io_threads = 4 #書き込み操作のI/Oスレッドの数
+thread_cache_size = 100 #スレッドのキャッシュサイズ
+innodb_file_per_table = ON #テーブル毎に物理ファイルを分ける
+max_connections = 1000 #Too many connections error が出る時は、max connections を大きくする
+
+sort_buffer_size = 4M # ソート時に使用されるバッファ
+join_buffer_size = 512K # インデックス未使用でのJOIN時に使用するバッファ
