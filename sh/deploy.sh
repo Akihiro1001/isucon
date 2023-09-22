@@ -19,7 +19,7 @@ if [ "$#" -ne 1 ]; then
   echo "処理を中断します。オプション（ブランチ名）は必ず指定してください。"
   exit 1
 fi
-deploy_branch=$1
+branch_name=$1
 
 # =========================
 # 関数
@@ -28,8 +28,8 @@ deploy_branch=$1
 # ブランチ切り替え、最新取り込み
 pull_repo() {
   cd "${WEBAPP_PATH}"
-
-  git show-ref --verify --quiet refs/heads/$deploy_branch
+  set +e
+  git show-ref --verify --quiet refs/heads/$branch_name
   if [ $? -eq 0 ]; then
     # ブランチが存在する場合、そのブランチに切り替える
     git checkout $branch_name
@@ -37,7 +37,8 @@ pull_repo() {
     # ブランチが存在しない場合、新規にブランチを作成して切り替える
     git checkout -b $branch_name
   fi
-  git pull origin ${deploy_branch}
+  set -e
+  git pull origin ${branch_name}
 }
 
 # Goのビルド
