@@ -115,3 +115,22 @@ restart() {
     # OS設定変更反映
     sudo sysctl -p
 }
+
+# 設定ファイルの文法チェック
+check_nginx_mysql_conf() {
+    # nginxの設定ファイルチェック
+    sudo nginx -t 2>&1 | grep -q "syntax is ok"
+    if [ $? -ne 0 ]; then
+        echo "Nginxの設定ファイルが不正なため処理を中断します。"
+        sudo nginx -t
+        exit 1
+    fi
+
+    # mysqlの設定ファイルチェック
+    sudo mysqld --verbose --help 1>/dev/null 2>&1
+    if [ $? -ne 0 ]; then
+        echo "MYSQLの設定ファイルが不正なため処理を中断します。"
+        sudo mysqld --verbose --help 1>/dev/null
+        exit 1
+    fi
+}

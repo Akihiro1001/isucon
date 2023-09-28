@@ -7,7 +7,6 @@
 # =========================
 # 初期処理
 # =========================
-set -e
 my_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "$my_dir/conf.sh"
 source "$my_dir/utils.sh"
@@ -37,7 +36,7 @@ pull_repo() {
     # ブランチが存在しない場合、新規にブランチを作成して切り替える
     git checkout -b $branch_name
   fi
-  set -e
+
   git pull origin ${branch_name}
 }
 
@@ -59,5 +58,6 @@ clear_log() {
 exec_func pull_repo
 exec_func build_go
 exec_func init_config_files true false
+exec_func check_nginx_mysql_conf
 exec_func restart
 exec_func clear_log
