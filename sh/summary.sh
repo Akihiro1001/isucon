@@ -26,8 +26,28 @@ summary_slow_log() {
   sudo pt-query-digest --filter '$event->{arg} =~ m/^select/i' --limit '100%:20' "${SLOW_LOG}" >${SLOW_LOG_OUTPUT}
 }
 
+# 集計結果をissueに上げる
+upload_issue() {
+
+  # タイトルを設定
+  local title="$1 $(date '+%H:%M:%S')"
+  local output="output.txt"
+
+  echo "### アクセスログ" >$output
+  echo '```' >>$output
+  cat $ACCESS_LOG_OUTPUT >>$output
+  echo '```' >>$output
+  echo "### スロークエリ" >>$output
+  echo '```' >>$output
+  cat $SLOW_LOG_OUTPUT >>$output
+  echo '```' >>$output
+
+  gh issue create --repo $GITHUB_USER_NAME/$GITHUB_REPOSITORY --title $title -F $output
+}
+
 # =========================
 # メイン処理
 # =========================
 exec_func summary_access_log
 exec_func summary_slow_log
+exec_func upload_issue $1
