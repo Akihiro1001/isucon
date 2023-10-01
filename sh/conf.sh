@@ -23,7 +23,7 @@ docker-compose.yml
 "
 
 # /etc/nginx/sites-enabled配下はシンボリックリンクで実態は/etc/nginx/sites-availableに存在するので注意
-CONF_FILES_SYMBOLIC=("/etc/nginx/nginx.conf" "/etc/nginx/sites-enabled/isucon.conf")
+CONF_FILES_SYMBOLIC=("/etc/nginx/nginx.conf" "/etc/nginx/sites-available/isucon.conf")
 CONF_FILES_HARD=("/etc/mysql/mysql.conf.d/mysqld.cnf" "/etc/sysctl.conf")
 
 SERVICES=("nginx" "mysql" "isu-go")
