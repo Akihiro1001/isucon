@@ -42,7 +42,7 @@ upload_issue() {
   cat $SLOW_LOG_OUTPUT >>$output
   echo '```' >>$output
 
-  gh issue create --repo $GITHUB_USER_NAME/$GITHUB_REPOSITORY --title $title -F $output
+  gh issue create --repo "${GITHUB_USER_NAME}/${GITHUB_REPOSITORY}" --title "${title}" -F "${output}"
 }
 
 # =========================

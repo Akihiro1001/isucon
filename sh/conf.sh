@@ -21,6 +21,16 @@ php/
 ruby/
 docker-compose.yml
 "
+# GIT_IGNORE_TARGET="
+# public/
+# frontend/
+# nodejs/
+# perl/
+# php/
+# python/
+# ruby/
+# rust/
+# "
 
 # /etc/nginx/sites-enabled配下はシンボリックリンクで実態は/etc/nginx/sites-availableに存在するので注意
 CONF_FILES_SYMBOLIC=("/etc/nginx/nginx.conf" "/etc/nginx/sites-available/isucon.conf")
