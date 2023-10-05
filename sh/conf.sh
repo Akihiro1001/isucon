@@ -2,17 +2,16 @@
 # =========================
 # 概要: 設定を一元管理する
 # =========================
-WEBAPP_PATH="/home/isucon/private_isu/webapp"
-CONFIGS_PATH="${WEBAPP_PATH}/configs"
+WEBAPP_PATH="/home/isucon/private_isu/webapp" # TODO:調整
 WEBAPP_BK_PATH="${WEBAPP_PATH}_bk"
-GO_BUILD_PATH="${WEBAPP_PATH}/golang"
-GO_BUILD_FILE="app.go"
+CONFIGS_PATH="${WEBAPP_PATH}/configs"
+GO_SOURCE_PATH="${WEBAPP_PATH}/golang/app.go" # TODO:調整(ソースファイルとビルドしたファイルが同一ディレクトリになる前提)
 
 GIT_USER_EMAIL="sample@sample.com"
 GIT_USER_NAME="sample"
 
 GITHUB_USER_NAME="Akihiro1001"
-GITHUB_REPOSITORY="private-isu"
+GITHUB_REPOSITORY="private-isu" # TODO:事前に調整
 
 GIT_IGNORE_TARGET="
 etc/
@@ -22,7 +21,6 @@ ruby/
 docker-compose.yml
 "
 # GIT_IGNORE_TARGET="
-# public/
 # frontend/
 # nodejs/
 # perl/
@@ -32,16 +30,16 @@ docker-compose.yml
 # rust/
 # "
 
-# /etc/nginx/sites-enabled配下はシンボリックリンクで実態は/etc/nginx/sites-availableに存在するので注意
-CONF_FILES_SYMBOLIC=("/etc/nginx/nginx.conf" "/etc/nginx/sites-available/isucon.conf")
-CONF_FILES_HARD=("/etc/mysql/mysql.conf.d/mysqld.cnf" "/etc/sysctl.conf")
+# シンボリックリンクではなく実態のパス（/etc/nginx/sites-enabled配下はシンボリックリンク。実態は/etc/nginx/sites-available）
+CONF_FILES_SYMBOLIC=("/etc/nginx/nginx.conf" "/etc/nginx/sites-available/isucon.conf") # TODO:調整
+CONF_FILES_HARD=("/etc/mysql/mysql.conf.d/mysqld.cnf" "/etc/sysctl.conf")              # TODO:調整
 
-SERVICES=("nginx" "mysql" "isu-go")
+SERVICES=("nginx" "mysql" "isu-go") # TODO:調整
 
-ACCESS_LOG="/var/log/nginx/access.log"
-SLOW_LOG="/var/log/mysql/mysql-slow.log"
+ACCESS_LOG="/var/log/nginx/access.log"   # 秘伝のタレと合わせているため調整不要
+SLOW_LOG="/var/log/mysql/mysql-slow.log" # 秘伝のタレと合わせているため調整不要
 
-ACCESS_LOG_OUTPUT="/tmp/alp-grouped-sum.txt"
-SLOW_LOG_OUTPUT="/tmp/pt-query-digest.txt"
+ACCESS_LOG_OUTPUT="/tmp/alp-grouped-sum.txt" # 秘伝のタレと合わせているため調整不要
+SLOW_LOG_OUTPUT="/tmp/pt-query-digest.txt"   # 秘伝のタレと合わせているため調整不要
 
-ACCESS_LOG_REGEX="/initialize,/login,/register,/logout,/posts/.*,/posts,/image/.*,/comment,/admin/banned,/.+,/}"
+ACCESS_LOG_REGEX="/initialize,/login,/register,/logout,/posts/.*,/posts,/image/.*,/comment,/admin/banned,/.+,/}" # TODO:調整

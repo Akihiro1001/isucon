@@ -42,8 +42,8 @@ pull_repo() {
 
 # Goのビルド
 build_go() {
-  cd "${GO_BUILD_PATH}"
-  go build "${GO_BUILD_FILE}"
+  cd "$(dirname ${GO_SOURCE_PATH})"
+  go build $(basename ${GO_SOURCE_PATH})
 }
 
 # ログクリア
