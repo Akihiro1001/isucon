@@ -30,7 +30,7 @@ summary_slow_log() {
 upload_issue() {
 
   # タイトルを設定
-  local title="$1 $(date '+%H:%M:%S')"
+  local title="$1 $(hostname) $(date '+%H:%M:%S')"
   local output="output.txt"
 
   echo "### アクセスログ" >$output
