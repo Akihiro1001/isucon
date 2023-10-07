@@ -33,3 +33,4 @@ exec_func clone_repo
 exec_func init_config_files "false" "false"
 exec_func init_config_files "true" "false"
 exec_func restart
+exec_func chmod_777_files
