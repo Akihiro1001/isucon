@@ -17,10 +17,10 @@ source "$my_dir/../utils.sh"
 # =========================
 # webapp配下をgit管理する
 init_repo() {
-    echo "webappのバックアップを取得します。"
-    check_not_exist_path "${WEBAPP_BK_PATH}"
-    cp -r "${WEBAPP_PATH}" "${WEBAPP_BK_PATH}"
-    echo "webappのバックアップを取得しました。バックアップ：${WEBAPP_BK_PATH}"
+    # echo "webappのバックアップを取得します。"
+    # check_not_exist_path "${WEBAPP_BK_PATH}"
+    # cp -r "${WEBAPP_PATH}" "${WEBAPP_BK_PATH}"
+    # echo "webappのバックアップを取得しました。バックアップ：${WEBAPP_BK_PATH}"
 
     echo "webappをgit管理します。"
     check_not_exist_path "${WEBAPP_PATH}/.git"
