@@ -135,9 +135,13 @@ check_nginx_mysql_conf() {
     fi
 }
 
-# 権限を777に変更
+# 権限を777に変更(ファイルが存在しない場合作成する)
 chmod_777_files() {
     for file in "${CHMOD_777_FILES[@]}"; do
+        if [ ! -d "$(dirname "$file")" ]; then
+            mkdir -p "$(dirname "$file")"
+        fi
+        touch "$file"
         sudo chmod 777 "$file"
     done
 }
