@@ -31,7 +31,3 @@ sudo apt install -y percona-toolkit
 # github cli
 sudo apt install gh
 gh auth login
-
-# mysqlがスロークエリが出力できるように権限現変更
-sudo chmod 666 /var/log/mysql/mysql-slow.log
-# sudo chmod 666 /var/log/mysql

@@ -43,3 +43,6 @@ ACCESS_LOG_OUTPUT="/tmp/alp-grouped-sum.txt" # 秘伝のタレと合わせてい
 SLOW_LOG_OUTPUT="/tmp/pt-query-digest.txt"   # 秘伝のタレと合わせているため調整不要
 
 ACCESS_LOG_REGEX="/initialize,/login,/register,/logout,/posts/.*,/posts,/image/.*,/comment,/admin/banned,/.+,/}" # TODO:調整
+
+# 権限777を付与するファイル
+CHMOD_777_FILES=("/var/log/mysql/mysql-slow.log")

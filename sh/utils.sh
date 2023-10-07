@@ -134,3 +134,10 @@ check_nginx_mysql_conf() {
         exit 1
     fi
 }
+
+# 権限を777に変更
+chmod_777_files() {
+    for file in "${CHMOD_777_FILES[@]}"; do
+        sudo chmod 777 "$file"
+    done
+}

@@ -40,3 +40,4 @@ exec_func init_config_files "false" "true"
 exec_func init_config_files "true" "true"
 exec_func commit_and_push
 exec_func restart
+exec_func chmod_777_files
