@@ -33,7 +33,7 @@ init_repo() {
 # .gitignoreを作成する
 init_gitignore() {
     echo ".gitignore を作成します。サイズオーバーのファイルはデフォルトで除外対象とします。"
-    check_not_exist_path "${WEBAPP_PATH}/.gitignore"
+    # check_not_exist_path "${WEBAPP_PATH}/.gitignore"
     find . -size +100M | sed -e 's/^\.\///' >>"${WEBAPP_PATH}/.gitignore"
     echo ".gitignore を作成しました。"
 
