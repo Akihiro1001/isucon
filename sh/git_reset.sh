@@ -3,6 +3,7 @@
 # 概要: Gitの問題を解消する
 # オプション：ブランチ名(必須)
 # =========================
+my_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "$my_dir/conf.sh"
 
 if [ "$#" -ne 1 ]; then
