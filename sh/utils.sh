@@ -141,7 +141,7 @@ chmod_777_files() {
         if [ ! -d "$(dirname "$file")" ]; then
             mkdir -p "$(dirname "$file")"
         fi
-        touch "$file"
+        sudo touch "$file"
         sudo chmod 777 "$file"
     done
 }

@@ -42,7 +42,15 @@ SLOW_LOG="/var/log/mysql/mysql-slow.log" # 秘伝のタレと合わせている�
 ACCESS_LOG_OUTPUT="/tmp/alp-grouped-sum.txt" # 秘伝のタレと合わせているため調整不要
 SLOW_LOG_OUTPUT="/tmp/pt-query-digest.txt"   # 秘伝のタレと合わせているため調整不要
 
-ACCESS_LOG_REGEX="/initialize,/login,/register,/logout,/posts/.*,/posts,/image/.*,/comment,/admin/banned,/.+,/}" # TODO:調整
+# TODO:調整
+# ChatGPTに変換してもらう。パスパラメーターは.*に手動で置換する
+# 以下の変換処理を実施してください。
+# 1. パスのみ抽出する
+# 2. カンマ区切りにする
+# ```
+# Golangのパスマッピングのコード
+# ```
+ACCESS_LOG_REGEX="/initialize,/login,/register,/logout,/posts/.*,/posts,/image/.*,/comment,/admin/banned,/.+,/}"
 
 # 権限777を付与するファイル
 CHMOD_777_FILES=("/var/log/mysql/mysql-slow.log")
