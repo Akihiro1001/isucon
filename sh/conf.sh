@@ -6,6 +6,7 @@ WEBAPP_PATH="/home/isucon/private_isu/webapp" # TODO:調整
 WEBAPP_BK_PATH="${WEBAPP_PATH}_bk"
 CONFIGS_PATH="${WEBAPP_PATH}/configs"
 GO_SOURCE_PATH="${WEBAPP_PATH}/golang/app.go" # TODO:調整(ソースファイルとビルドしたファイルが同一ディレクトリになる前提)
+GO_BINARY_FILE="isuconquest"                  # TODO:調整(ソースファイルとビルドしたファイルが同一ディレクトリになる前提)
 
 GIT_USER_EMAIL="sample@sample.com"
 GIT_USER_NAME="sample"
