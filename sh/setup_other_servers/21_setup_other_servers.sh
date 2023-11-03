@@ -17,7 +17,7 @@ source "$my_dir/../utils.sh"
 # =========================
 clone_repo() {
   echo "webappを削除します。"
-  mv "${WEBAPP_PATH}" "${WEBAPP_PATH}_bk"
+  mv -v "${WEBAPP_PATH}" "${WEBAPP_PATH}_bk"
   echo "webappを削除しました。バックアップ：${WEBAPP_PATH}_bk"
 
   echo "cloneします。"
