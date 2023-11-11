@@ -8,6 +8,10 @@ CONFIGS_PATH="${WEBAPP_PATH}/configs"
 GO_SOURCE_PATH="${WEBAPP_PATH}/golang/app.go" # TODO:調整(ソースファイルとビルドしたファイルが同一ディレクトリになる前提)
 GO_BINARY_FILE="isuconquest"                  # TODO:調整(ソースファイルとビルドしたファイルが同一ディレクトリになる前提)
 
+# TODO:GOの実行ファイル
+# TODO:go versionを実行し、すでにパスが通っている場合、空文字にする
+GO_EXEC_PATH="/home/isucon/local/go/bin/go"
+
 GIT_USER_EMAIL="sample@sample.com"
 GIT_USER_NAME="sample"
 

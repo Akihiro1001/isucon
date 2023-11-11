@@ -15,6 +15,10 @@ source "$my_dir/../utils.sh"
 # メイン処理
 # =========================
 
+if [ -n "$GO_EXEC_PATH" ]; then
+  export PATH="$PATH:$GO_EXEC_PATH"
+fi
+
 sudo apt update
 
 # htop

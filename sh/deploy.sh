@@ -44,10 +44,7 @@ pull_repo() {
 # ファイル名main.go出ない場合、ソースとバイナリが別フォルダの場合の処理を検討
 build_go() {
   cd "$(dirname ${GO_SOURCE_PATH})"
-  # TODO:本番調整する
-  # /home/isucon/local/golang/bin/go build -o ${GO_BINARY_FILE}
-  # go build -o ${GO_BINARY_FILE}
-  /home/isucon/local/go/bin/go build -o ${GO_BINARY_FILE}
+  go build -o ${GO_BINARY_FILE}
 }
 
 # ログクリア
