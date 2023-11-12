@@ -19,8 +19,6 @@ if [ -n "$GO_EXEC_PATH" ]; then
   export PATH="$PATH:$GO_EXEC_PATH"
 fi
 
-sudo apt update
-
 # htop
 sudo apt -y install htop
 
@@ -32,6 +30,7 @@ sudo install alp /usr/local/bin/alp
 # pt-query-digest
 sudo wget https://repo.percona.com/apt/percona-release_latest.$(lsb_release -sc)_all.deb
 sudo dpkg -i percona-release_latest.$(lsb_release -sc)_all.deb
+sudo apt update
 sudo apt install -y percona-toolkit
 
 # github cli
@@ -40,6 +39,7 @@ type -p curl >/dev/null || (sudo apt update && sudo apt install curl -y)
 curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg &&
   sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg &&
   echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list >/dev/null &&
+  sudo apt update &&
   sudo apt install gh -y
 
 gh auth login
