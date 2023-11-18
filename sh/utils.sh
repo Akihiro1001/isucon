@@ -27,6 +27,7 @@ configure_global_git() {
     git config --global user.email "${GIT_USER_EMAIL}"
     git config --global credential.helper store
     git config --global init.defaultBranch main
+    git config --global pull.rebase false
 }
 
 # 存在しない想定のパスがすでに存在する場合処理を中断する。（$1:パス（ファイルまたはディレクトリ））
