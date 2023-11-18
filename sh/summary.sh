@@ -23,8 +23,11 @@ summary_access_log() {
 }
 
 # スロークエリ解析結果を出力
+# summary_slow_log() {
+#   sudo pt-query-digest --filter '$event->{arg} =~ m/^select/i' --limit '100%:20' "${SLOW_LOG}" >${SLOW_LOG_OUTPUT}
+# }
 summary_slow_log() {
-  sudo pt-query-digest --filter '$event->{arg} =~ m/^select/i' --limit '100%:20' "${SLOW_LOG}" >${SLOW_LOG_OUTPUT}
+  sudo pt-query-digest --limit '100%:20' "${SLOW_LOG}" >${SLOW_LOG_OUTPUT}
 }
 
 # 集計結果をissueに上げる
