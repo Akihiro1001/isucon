@@ -53,6 +53,7 @@ upload_issue() {
 # =========================
 # メイン処理
 # =========================
+sleep 120 # ベンチ実行完了を待つ
 exec_func summary_access_log
 exec_func summary_slow_log
 exec_func upload_issue $1
