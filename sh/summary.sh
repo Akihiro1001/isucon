@@ -38,22 +38,7 @@ upload_issue() {
   local title="$1 $(hostname) $(date '+%H:%M:%S')"
   local output="output.txt"
 
-  echo "### TOP(50S)" >$output
-  echo '```' >>$output
-  cat top_output_50s.txt >>$output
-  echo '```' >>$output
-
-  echo "### TOP(60S)" >>$output
-  echo '```' >>$output
-  cat top_output_60s.txt >>$output
-  echo '```' >>$output
-
-  echo "### TOP(70S)" >>$output
-  echo '```' >>$output
-  cat top_output_70s.txt >>$output
-  echo '```' >>$output
-
-  echo "### アクセスログ" >>$output
+  echo "### アクセスログ" >$output
   echo '```' >>$output
   cat $ACCESS_LOG_OUTPUT >>$output
   echo '```' >>$output
@@ -69,14 +54,6 @@ upload_issue() {
 # =========================
 # メイン処理
 # =========================
-sleep 50
-top -b -n 1 | sed -n '7,14p' >top_output_50s.txt
-sleep 10 # 60s
-top -b -n 1 | sed -n '7,14p' >top_output_60s.txt
-sleep 10 # 70s
-top -b -n 1 | sed -n '7,14p' >top_output_70s.txt
-sleep 50 # 120s
-
 exec_func summary_access_log
 exec_func summary_slow_log
 exec_func upload_issue $1
