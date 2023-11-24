@@ -36,7 +36,8 @@ innodb_write_io_threads = 4 #書き込み操作のI/Oスレッドの数
 thread_cache_size = 100 #スレッドのキャッシュサイズ
 innodb_file_per_table = ON #テーブル毎に物理ファイルを分ける
 max_connections = 1000 #Too many connections error が出る時は、max connections を大きくする
-
+performance_schema　= off #パフォーマンススキーマを無効化する
+disable-log-bin # バイナリログを無効化する
 sort_buffer_size = 4M # ソート時に使用されるバッファ
 join_buffer_size = 512K # インデックス未使用でのJOIN時に使用するバッファ
 
