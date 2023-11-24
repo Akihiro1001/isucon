@@ -16,24 +16,16 @@ GIT_USER_EMAIL="sample@sample.com"
 GIT_USER_NAME="sample"
 
 GITHUB_USER_NAME="Akihiro1001"
-GITHUB_REPOSITORY="private-isu" # TODO:事前に調整
+GITHUB_REPOSITORY="isucon13"
 
 GIT_IGNORE_TARGET="
-etc/
-node/
+perl
 php/
+python/
 ruby/
-docker-compose.yml
+rust/
+node/
 "
-# GIT_IGNORE_TARGET="
-# frontend/
-# nodejs/
-# perl/
-# php/
-# python/
-# ruby/
-# rust/
-# "
 
 # シンボリックリンクではなく実態のパス（/etc/nginx/sites-enabled配下はシンボリックリンク。実態は/etc/nginx/sites-available）
 CONF_FILES_SYMBOLIC=("/etc/nginx/nginx.conf" "/etc/nginx/sites-available/isucon.conf") # TODO:調整
